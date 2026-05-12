@@ -1,0 +1,13 @@
+services:
+  oktopos-api-tester:
+    build: .
+    image: oktopos-api-tester:latest
+    container_name: oktopos-api-tester
+    ports:
+      - "8080:8080"
+    environment:
+      # Optional defaults — can also be set in the web UI
+      # OKTOPOS_BASE_URL: "https://your-instance.oktopos.example"
+      # OKTOPOS_API_KEY: "your-api-key"
+      OKTOPOS_TIMEOUT: "30"
+    restart: unless-stopped

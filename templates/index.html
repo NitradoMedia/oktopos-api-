@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OktoPOS API Tester</title>
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐙</text></svg>" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🐙</span>
+      <div>
+        <h1>OktoPOS API Tester</h1>
+        <small>Customer API · v1</small>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <span id="connection-pill" class="pill pill-warn" title="Status">Kein API-Key gesetzt</span>
+      <button id="open-settings" class="btn btn-primary">⚙ Einstellungen</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-title">Endpunkte</div>
+      <nav class="endpoint-list" id="endpoint-list"></nav>
+      <div class="sidebar-footer">
+        <a href="https://oktopos-manager.pages.oktopos.net/api-public/api-doc/customer.html" target="_blank" rel="noopener">
+          📘 Offizielle API-Doku
+        </a>
+      </div>
+    </aside>
+
+    <section class="workarea">
+      <div class="endpoint-header">
+        <div>
+          <span id="endpoint-method" class="method method-get">GET</span>
+          <span id="endpoint-path" class="endpoint-path">—</span>
+        </div>
+        <h2 id="endpoint-title">Wähle einen Endpunkt</h2>
+        <p id="endpoint-description" class="muted"></p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-header">
+            <h3>Anfrage</h3>
+            <button id="send-btn" class="btn btn-primary" disabled>▶ Senden</button>
+          </div>
+          <div id="form-container" class="form-container">
+            <p class="muted">Bitte wähle links einen Endpunkt aus.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Antwort</h3>
+            <div class="response-meta">
+              <span id="response-status" class="pill pill-neutral">—</span>
+              <span id="response-time" class="muted small"></span>
+              <button id="copy-response" class="btn btn-ghost" title="Kopieren">📋</button>
+            </div>
+          </div>
+          <div id="response-request-info" class="request-info hidden">
+            <div class="request-info-row">
+              <span class="request-info-label">Method</span>
+              <code id="response-method"></code>
+            </div>
+            <div class="request-info-row">
+              <span class="request-info-label">URL</span>
+              <code id="response-url" class="response-url"></code>
+            </div>
+            <div class="request-info-row" id="request-body-row">
+              <span class="request-info-label">Body</span>
+              <pre id="response-request-body" class="request-body"></pre>
+            </div>
+            <div class="request-info-row">
+              <span class="request-info-label">Dauer</span>
+              <code id="response-duration"></code>
+            </div>
+          </div>
+          <pre id="response-output" class="response"><code>Noch keine Anfrage gesendet.</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Settings Modal -->
+  <div id="settings-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>⚙ Einstellungen</h2>
+        <button class="btn btn-ghost" data-close-modal>✕</button>
+      </div>
+      <div class="modal-body">
+        <label class="field">
+          <span>Base URL der OktoPOS-Instanz</span>
+          <input type="url" id="cfg-baseUrl" placeholder="https://deine-instanz.oktopos.example" />
+          <small class="muted">Beispiel: <code>https://manager.deine-domain.tld</code> (ohne <code>/v1</code> am Ende)</small>
+        </label>
+
+        <label class="field">
+          <span>API Key</span>
+          <div class="input-row">
+            <input type="password" id="cfg-apiKey" placeholder="dein-api-key" autocomplete="off" />
+            <button type="button" class="btn btn-ghost" id="toggle-key">👁</button>
+          </div>
+          <small class="muted">Wird nur in deinem Browser (localStorage) gespeichert.</small>
+        </label>
+
+        <label class="field">
+          <span>Authentifizierungs-Stil</span>
+          <select id="cfg-authStyle">
+            <option value="header">Header (Standard)</option>
+            <option value="bearer">Authorization: Bearer …</option>
+          </select>
+        </label>
+
+        <label class="field" id="auth-header-field">
+          <span>Name des Auth-Headers</span>
+          <input type="text" id="cfg-authHeader" placeholder="X-API-Key" value="X-API-Key" />
+          <small class="muted">Üblich: <code>X-API-Key</code>, <code>X-Auth-Token</code> oder <code>apikey</code>.</small>
+        </label>
+
+        <div class="row gap">
+          <button class="btn btn-ghost" id="cfg-test">🔌 Verbindung testen</button>
+          <span id="cfg-test-result" class="muted small"></span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" data-close-modal>Abbrechen</button>
+        <button class="btn btn-primary" id="cfg-save">Speichern</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
