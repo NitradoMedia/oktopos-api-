@@ -13,7 +13,7 @@
       <span class="logo">🐙</span>
       <div>
         <h1>OktoPOS API Tester</h1>
-        <small>Customer API · v1</small>
+        <small>by NitradoMedia LLC · Customer API · v1</small>
       </div>
     </div>
     <div class="topbar-actions">
@@ -30,6 +30,12 @@
         <a href="https://oktopos-manager.pages.oktopos.net/api-public/api-doc/customer.html" target="_blank" rel="noopener">
           📘 Offizielle API-Doku
         </a>
+        <a href="#" id="open-imprint" class="footer-link">
+          ⚖ Impressum
+        </a>
+        <div class="footer-brand">
+          © <span id="footer-year"></span> NitradoMedia LLC
+        </div>
       </div>
     </aside>
 
@@ -133,6 +139,97 @@
       <div class="modal-footer">
         <button class="btn btn-ghost" data-close-modal>Abbrechen</button>
         <button class="btn btn-primary" id="cfg-save">Speichern</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Imprint Modal -->
+  <div id="imprint-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-content imprint-modal-content">
+      <div class="modal-header">
+        <h2>⚖ Impressum / Legal Notice</h2>
+        <button class="btn btn-ghost" data-close-modal>✕</button>
+      </div>
+      <div class="modal-body imprint-body">
+        <p class="muted small">
+          Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz) und § 18 Medienstaatsvertrag.
+        </p>
+
+        <section class="imprint-section">
+          <h3>Anbieter</h3>
+          <p>
+            <strong>NitradoMedia LLC</strong><br/>
+            770 County Square Drive<br/>
+            Ventura, CA 93003<br/>
+            United States of America
+          </p>
+        </section>
+
+        <section class="imprint-section">
+          <h3>Vertretungsberechtigter</h3>
+          <p>
+            Stefan McFarland<br/>
+            <span class="muted small">Chief Executive Officer (CEO)</span>
+          </p>
+        </section>
+
+        <section class="imprint-section">
+          <h3>Kontakt</h3>
+          <p>
+            Telefon (US): <a href="tel:+17252547661">+1 725-254-7661</a><br/>
+            Telefon (DE): <a href="tel:+491748406835">+49 174 8406835</a><br/>
+            E-Mail: <a href="mailto:info@nitradomedia.com">info@nitradomedia.com</a>
+          </p>
+        </section>
+
+        <section class="imprint-section">
+          <h3>Gesellschaftsangaben</h3>
+          <p>
+            Rechtsform: Limited Liability Company (LLC)<br/>
+            Registriert in: California, USA<br/>
+            Entity Number: 202357118071<br/>
+            Registerbehörde:
+            <a href="https://bizfileonline.sos.ca.gov/" target="_blank" rel="noopener noreferrer">
+              California Secretary of State – bizfileonline.sos.ca.gov
+            </a>
+          </p>
+        </section>
+
+        <section class="imprint-section">
+          <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+          <p>
+            Stefan McFarland<br/>
+            NitradoMedia LLC<br/>
+            770 County Square Drive, Ventura, CA 93003, USA
+          </p>
+        </section>
+
+        <section class="imprint-section">
+          <h3>Haftungsausschluss</h3>
+          <p class="small">
+            Dieses Web-Interface ist ein internes Tool zum Testen der OktoPOS Customer API.
+            Es steht in keinem geschäftlichen Verhältnis zu OktoPOS und alle Marken sind Eigentum
+            ihrer jeweiligen Inhaber. Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir
+            keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten
+            sind ausschließlich deren Betreiber verantwortlich.
+          </p>
+        </section>
+
+        <section class="imprint-section">
+          <h3>EU-Streitschlichtung</h3>
+          <p class="small">
+            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+            <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">
+              ec.europa.eu/consumers/odr
+            </a>.
+            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+            Verbraucherschlichtungsstelle teilzunehmen.
+          </p>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-close-modal>Schließen</button>
       </div>
     </div>
   </div>

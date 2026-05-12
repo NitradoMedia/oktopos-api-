@@ -531,7 +531,7 @@ document.addEventListener("DOMContentLoaded", () => {
   refreshConnectionPill();
 
   document.getElementById("open-settings").addEventListener("click", openModal);
-  document.querySelectorAll("[data-close-modal]").forEach(el => el.addEventListener("click", closeModal));
+  // Close handlers are wired generically further below (works for all modals).
 
   document.getElementById("cfg-authStyle").addEventListener("change", toggleAuthHeaderField);
   document.getElementById("cfg-save").addEventListener("click", () => {
@@ -559,6 +559,24 @@ document.addEventListener("DOMContentLoaded", () => {
       pill.textContent = "kopiert!";
       setTimeout(() => (pill.textContent = old), 1200);
     } catch (e) {}
+  });
+
+  // Imprint modal
+  const yearEl = document.getElementById("footer-year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  const imprintBtn = document.getElementById("open-imprint");
+  if (imprintBtn) {
+    imprintBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.getElementById("imprint-modal").classList.remove("hidden");
+    });
+  }
+  // Generic close for all modals
+  document.querySelectorAll("[data-close-modal]").forEach(el => {
+    el.addEventListener("click", () => {
+      const modal = el.closest(".modal");
+      if (modal) modal.classList.add("hidden");
+    });
   });
 
   // Select the first endpoint by default
