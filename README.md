@@ -23,22 +23,21 @@ und kannst dann alle Endpunkte mit ein paar Klicks ausprobieren — kein Postman
 
 ## Features
 
-- 🎨 Schöne, dunkle Web-Oberfläche – keine Installation nötig, nur Browser
-- 🔐 API-Key & Base-URL werden **nur lokal** im Browser (localStorage) gespeichert
-- 🛰 Eingebauter Python-Proxy – keine CORS-Probleme
-- 🧪 Komplette Customer-API abgedeckt:
+-    keine Installation nötig, nur Browser
+-    API-Key & Base-URL werden **nur lokal** im Browser (localStorage) gespeichert
+-    Eingebauter Python-Proxy – keine CORS-Probleme
+-    Komplette Customer-API abgedeckt:
   - `POST /v1/customers` – Kunden anlegen
   - `GET  /v1/customers/findByExternalIdentifier/{externalIdentifier}`
   - `GET  /v1/customers/findByPhoneNumber`
   - `POST /v1/customers/createVoucherAccount`
   - `GET  /v1/customers/check-balance/{cardNumber}`
   - `POST /v1/customers/recharge-balance`
-- 🔌 „Verbindung testen"-Button für schnellen Health-Check
-- 📜 Volle Transparenz: angezeigte URL, HTTP-Methode, Request-Body, Response, Statuscode und Dauer
-- 🌈 JSON-Syntax-Highlighting
-- 📝 Vorausgefüllte JSON-Beispiele für komplexe Endpunkte
-- ⚖ Integriertes Impressum / Legal Notice
-
+-   „Verbindung testen"-Button für schnellen Health-Check
+-   Volle Transparenz: angezeigte URL, HTTP-Methode, Request-Body, Response, Statuscode und Dauer
+-   JSON-Syntax-Highlighting
+-   Vorausgefüllte JSON-Beispiele für komplexe Endpunkte
+-   
 ## Schnellstart
 
 ### Variante A: docker compose (empfohlen)
